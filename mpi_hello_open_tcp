@@ -1,5 +1,5 @@
 #!/bin/bash
 
-for i in {001..180};
+for i in {001..005};
  do ssh condo$i "module load openmpi/2; mpirun --mca btl_openib_verbose 1 --mca btl tcp -host condo$i,condo$(printf "%03d" $((10#$i+1))) /work/LAS/researchit/baber/condo_test_scripts/mpi_hello_open &> /work/LAS/researchit/baber/condo_test_scripts/logs/mpi_hello_open_tcp_$i.log;";
 done;
