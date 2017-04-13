@@ -1,0 +1,9 @@
+#!/bin/bash
+
+for i in {001..180};
+	do ping -c 2 -i 3 condo$i-ib >> logs/ping.log
+done;
+
+for i in {001..48};
+        do ping -c 2 -i 3 condosb$i-ib >> logs/ping.log
+done;

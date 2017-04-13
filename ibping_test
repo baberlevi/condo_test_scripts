@@ -1,0 +1,12 @@
+#!/bin/bash
+
+ssh condo001 ibping -S &
+
+for i in {002..180};
+	do ssh condo$i "ibping -c 2 -G 0x00117500006f6b10 >> /work/LAS/researchit/baber/condo_test_scripts/logs/ibping.log"
+done;
+
+for i in {001..045};
+	do ssh condosb$i "ibping -c 2 -G 0x00117500006f6b10 >> /work/LAS/researchit/baber/condo_test_scripts/logs/ibping.log"
+done;
+

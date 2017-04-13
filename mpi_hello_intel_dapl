@@ -1,0 +1,5 @@
+#!/bin/bash
+
+for i in {001..179};
+ do ssh condo$i "module load intel; mpirun -env I_MPI_FABRICS dapl -hosts condo$i,condo$(printf "%03d" $((10#$i+1))) /work/LAS/researchit/baber/condo_test_scripts/mpi_hello_intel &> /work/LAS/researchit/baber/condo_test_scripts/logs/mpi_hello_intel_dapl_$i.log;";
+done;
